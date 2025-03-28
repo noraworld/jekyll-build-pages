@@ -1,0 +1,64 @@
+name: Build Jekyll with customizable environments
+
+inputs:
+  use_ruby_version:
+    required: false
+    default: false
+  use_gemfile:
+    required: false
+    default: false
+
+runs:
+  using: "composite"
+  steps:
+    - name: Check out repository
+      uses: actions/checkout@v4
+
+    - if: ${{ !(inputs.use_ruby_version == 'true' && inputs.use_gemfile == 'true') }}
+      name: Check if jekyll-build-pages directory is excluded in _config.yml
+      run: |
+        if ! sed -n '/^exclude:/,/^[^[:space:]]/p' _config.yml | grep -qE '^\s*-\s*jekyll-build-pages'; then
+          echo "Error: jekyll-build-pages is not excluded in _config.yml" >&2
+          exit 1
+        fi
+      shell: sh
+
+    - if: ${{ !(inputs.use_ruby_version == 'true' && inputs.use_gemfile == 'true') }}
+      name: Check out Action repository
+      uses: actions/checkout@v4
+      with:
+        repository: noraworld/jekyll-build-pages
+        ref: main
+        path: jekyll-build-pages
+
+    - name: Set environments
+      run: |
+        if [ "${{ inputs.use_ruby_version }}" = "true" ]; then
+          echo "RUBY_VERSION=$(cat .ruby-version)" >> $GITHUB_ENV
+        else
+          echo "RUBY_VERSION=$(cat jekyll-build-pages/.ruby-version)" >> $GITHUB_ENV
+        fi
+
+        if [ "${{ inputs.use_gemfile }}" = "true" ]; then
+          echo "BUNDLE_GEMFILE=$(realpath Gemfile)" >> $GITHUB_ENV
+        else
+          echo "BUNDLE_GEMFILE=$(realpath jekyll-build-pages/Gemfile)" >> $GITHUB_ENV
+        fi
+      shell: sh
+
+    - name: Set up Pages
+      uses: actions/configure-pages@v5
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ env.RUBY_VERSION }}
+        bundler-cache: true
+        rubygems: latest
+
+    - name: Build with Jekyll
+      run: bundle exec jekyll build
+      shell: sh
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3

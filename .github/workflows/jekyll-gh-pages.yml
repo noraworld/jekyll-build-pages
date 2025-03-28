@@ -1,0 +1,43 @@
+name: Build and Deploy Jekyll with GitHub Actions
+
+on:
+  workflow_call:
+    inputs:
+      use_ruby_version:
+        required: false
+        default: false
+        type: string
+      use_gemfile:
+        required: false
+        default: false
+        type: string
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build with Jekyll
+        uses: noraworld/jekyll-build-pages@main
+        with:
+          use_ruby_version: ${{ inputs.use_ruby_version }}
+          use_gemfile: ${{ inputs.use_gemfile }}
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
