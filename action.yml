@@ -1,4 +1,9 @@
-name: Build Jekyll with customizable environments
+name: Build Jekyll with GitHub Actions
+description: Build Jekyll with customizable environments
+author: noraworld
+branding:
+  icon: play-circle
+  color: red
 
 inputs:
   use_ruby_version:
