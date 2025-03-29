@@ -28,7 +28,7 @@ This repository basically offers the same functions as [`actions/jekyll-build-pa
 I put an effort to keep them updated, but please keep in mind that the updating may be delayed. The pull requests to improve this project are always welcomed!
 
 ## Sample workflow
-Navigate to the GitHub Pages settings (`https://github.com/<USER>/<REPO>/settings/pages`) and select the source `GitHub Actions`. And then put the following YAML file in `.github/workflows/`. Copying and pasting without any change probably works fine if you use the `main` branch.
+Navigate to the GitHub Pages settings (`https://github.com/<USER>/<REPO>/settings/pages`) and select the source `GitHub Actions`. And then put the following YAML file in `.github/workflows/`. Copying and pasting without any change should work fine if you use the `main` branch.
 
 ```yaml
 name: Build and Deploy Jekyll
@@ -85,7 +85,8 @@ If you don't set these options, the configurations on this project will be used.
 | `use_ruby_version` | Boolean | `false` | Set your preferred Ruby version (`.ruby-version` is needed on your repository) |
 | `use_gemfile`      | Boolean | `false` | Use your preferred Gems (`Gemfile` is needed on your repository)               |
 
-Are you a lazy person? Same here! This repository offers a easier way to set up a workflow. All you need to do is copy and paste the YAML code below.
+### One more thing...
+Are you a lazy person? Same here! This repository offers a much easier way to set up a workflow. All you need to do is copy and paste the YAML code below.
 
 ```yaml
 name: Build and Deploy Jekyll
