@@ -75,6 +75,14 @@ Consider locking the version if you don't want to change the behavior implicitly
 +        uses: noraworld/jekyll-build-pages@v0.0.1
 ```
 
+### Options
+If you don't set these options, the configurations on this project will be used.
+
+| Key                | Type    | Default | Description                                                                    |
+| ------------------ | :-----: | :-----: | ------------------------------------------------------------------------------ |
+| `use_ruby_version` | Boolean | `false` | Set your preferred Ruby version (`.ruby-version` is needed on your repository) |
+| `use_gemfile`      | Boolean | `false` | Use your preferred Gems (`Gemfile` is needed on your repository)               |
+
 Are you a lazy person? Same here! This repository offers a easier way to set up a workflow. All you need to do is copy and paste the YAML code below.
 
 ```yaml
