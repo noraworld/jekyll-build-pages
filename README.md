@@ -42,6 +42,13 @@ jobs:
         uses: actions/deploy-pages@v4
 ```
 
+Consider locking the version if you don't want to change the behavior implicitly. See [the tags](https://github.com/noraworld/jekyll-build-pages/tags) for the versions list.
+
+```diff
+-        uses: noraworld/jekyll-build-pages@main
++        uses: noraworld/jekyll-build-pages@v0.0.1
+```
+
 Are you a lazy person? Same here! This repository offers a easier way to set up a workflow. All you need to do is copy and paste the YAML code below.
 
 ```yaml
@@ -59,3 +66,5 @@ jobs:
 ```
 
 `use_ruby_version` and `use_gemfile` are also available here too.
+
+Note that `jekyll-gh-pages.yml` uses the latest version of `action.yml` internally, which means the behavior might change as it's updated.
