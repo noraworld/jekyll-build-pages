@@ -1,4 +1,4 @@
-name: Build Jekyll with GitHub Actions
+name: Jekyll Build Pages
 description: Build Jekyll with customizable environments
 author: noraworld
 branding:
