@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# This file is essential because it's referenced by a lot of repositories such as my blog, diary, devlog, and other ones whose owners use the Action!
+
 source 'https://rubygems.org'
 
 gem 'jekyll'
