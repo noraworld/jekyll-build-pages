@@ -7,6 +7,10 @@ You want to use the custom plugins and the latest version of Jekyll, but don't w
 ### Issues about `actions/jekyll-build-pages`
 GitHub has provided the easiest way to build Jekyll and deploy to GitHub Pages. None of the hassle procedures are needed. All you have to do is just enable GitHub Pages.
 
+* [Setting up a GitHub Pages site with Jekyll - GitHub Docs](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll)
+* [GitHub Pages | Jekyll • Simple, blog-aware, static sites](https://jekyllrb.com/docs/github-pages/)
+* [GitHub Actions | Jekyll • Simple, blog-aware, static sites](https://jekyllrb.com/docs/continuous-integration/github-actions/)
+
 However, the versions of its dependencies are stale! Even in 2025, it uses Jekyll 3.10.0, and in this version, some of the useful features are unavailable, such as [`render_with_liquid`](https://jekyllrb.com/docs/liquid/tags/).
 
 [Dependency versions | GitHub Pages](https://pages.github.com/versions/)
