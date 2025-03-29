@@ -78,7 +78,7 @@ Consider locking the version if you don't want to change the behavior implicitly
 
 ```diff
 -        uses: noraworld/jekyll-build-pages@main
-+        uses: noraworld/jekyll-build-pages@v0.1.0
++        uses: noraworld/jekyll-build-pages@vX.X.X  # <- Replace X.X.X with a specific version
 ```
 
 ### Options
