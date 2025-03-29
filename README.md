@@ -68,3 +68,6 @@ jobs:
 `use_ruby_version` and `use_gemfile` are also available here too.
 
 Note that `jekyll-gh-pages.yml` uses the latest version of `action.yml` internally, which means the behavior might change as it's updated.
+
+## License
+All files in this project are released under the [MIT License](LICENSE).
