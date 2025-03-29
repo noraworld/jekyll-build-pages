@@ -1,6 +1,32 @@
 # Jekyll Build Pages
 A simple GitHub Action for producing Jekyll build artifacts with customizable environments.
 
+## Concept of this project
+You want to use the custom plugins and the latest version of Jekyll, but don't want something messy? This Action is the best for you!
+
+### Issues about `actions/jekyll-build-pages`
+GitHub has provided the easiest way to build Jekyll and deploy to GitHub Pages. None of the hassle procedures are needed. All you have to do is just enable GitHub Pages.
+
+However, the versions of its dependencies are stale! Even in 2025, it uses Jekyll 3.10.0, and in this version, some of the useful features are unavailable, such as [`render_with_liquid`](https://jekyllrb.com/docs/liquid/tags/).
+
+[Dependency versions | GitHub Pages](https://pages.github.com/versions/)
+
+Furthermore, it only allows you to use [kramdown](https://github.com/gettalong/kramdown) as a markdown parser, and the parser has a lot of problems as follows.
+
+* The tables after the deadlines aren't parsed unless you put an empty line between them
+* The markdown isn't available in the `<details>` tag
+* `|` is interpreted as the table when it exists in a link title (e.g. [Example Domain | example.com](https://example.com))
+* The link without a title isn't parsed as a link
+
+They haven't been resolved as of [v2.5.1](https://rubygems.org/gems/kramdown/versions/2.5.1). It's difficult to use, at least for me.
+
+### What's different?
+This repository basically offers the same functions as [`actions/jekyll-build-pages`](https://github.com/actions/jekyll-build-pages), but it allows you to use the latest version of Jekyll and its dependencies. You can also use the custom plugins that aren't available in [`actions/jekyll-build-pages`](https://github.com/actions/jekyll-build-pages) by configuring `Gemfile` on your own.
+
+`.ruby-version` and `Gemfile` are maintained on this repository, so you don't need to have them configured. You can use your own ones if you want to use the plugins that aren't listed on [`Gemfile`](Gemfile) and the custom ones.
+
+I put an effort to keep them updated, but please keep in mind that the updating may be delayed. The pull requests to improve this project are always welcomed!
+
 ## Sample workflow
 ```yaml
 name: Build and Deploy Jekyll
