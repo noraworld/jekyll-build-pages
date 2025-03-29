@@ -3,7 +3,7 @@ A simple GitHub Action for producing Jekyll build artifacts with customizable en
 
 ## Sample workflow
 ```yaml
-name: Build and Deploy Jekyll with GitHub Actions
+name: Build and Deploy Jekyll
 
 on:
   push:
@@ -52,7 +52,7 @@ Consider locking the version if you don't want to change the behavior implicitly
 Are you a lazy person? Same here! This repository offers a easier way to set up a workflow. All you need to do is copy and paste the YAML code below.
 
 ```yaml
-name: Build and Deploy Jekyll with GitHub Actions
+name: Build and Deploy Jekyll
 
 on:
   push:
