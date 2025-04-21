@@ -38,6 +38,8 @@ runs:
 
     - name: Set environments
       run: |
+        echo "JEKYLL_ENV=production" >> $GITHUB_ENV
+
         if [ "${{ inputs.use_ruby_version }}" = "true" ]; then
           echo "RUBY_VERSION=$(cat .ruby-version)" >> $GITHUB_ENV
         else
