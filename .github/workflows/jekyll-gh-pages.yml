@@ -34,6 +34,11 @@ jobs:
           ref: main
           fetch-depth: 0
 
+      - name: Fetch latest change
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+
       - name: Build with Jekyll
         uses: noraworld/jekyll-build-pages@main
         with:
