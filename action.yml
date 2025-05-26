@@ -18,6 +18,7 @@ runs:
   steps:
     - name: Wait for latest change
       run: sleep 10
+      shell: sh
 
     - name: Check out repository
       uses: actions/checkout@v4
@@ -27,6 +28,7 @@ runs:
 
     - name: Fetch latest change
       run: git pull origin main
+      shell: sh
 
     - if: ${{ !(inputs.use_ruby_version == 'true' && inputs.use_gemfile == 'true') }}
       name: Check if jekyll-build-pages directory is excluded in _config.yml
