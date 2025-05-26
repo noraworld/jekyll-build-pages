@@ -12,12 +12,16 @@ inputs:
   use_gemfile:
     required: false
     default: false
+  ref:
+    required: false
+    default: ${{ github.event.repository.default_branch }}
 
 runs:
   using: "composite"
   steps:
     - name: Check out repository
       uses: actions/checkout@v4
+      ref: ${{ inputs.ref }}
 
     - if: ${{ !(inputs.use_ruby_version == 'true' && inputs.use_gemfile == 'true') }}
       name: Check if jekyll-build-pages directory is excluded in _config.yml
