@@ -3,10 +3,6 @@ name: Build and Deploy Jekyll with GitHub Actions
 on:
   workflow_call:
     inputs:
-      action_version:
-        required: false
-        default: main
-        type: string
       use_ruby_version:
         required: false
         default: false
@@ -34,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build with Jekyll
-        uses: noraworld/jekyll-build-pages@${{ inputs.action_version }}
+        uses: noraworld/jekyll-build-pages@main
         with:
           use_ruby_version: ${{ inputs.use_ruby_version }}
           use_gemfile: ${{ inputs.use_gemfile }}
