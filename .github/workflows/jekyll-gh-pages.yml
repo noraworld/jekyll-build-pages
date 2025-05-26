@@ -25,18 +25,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Wait for latest change
-        run: sleep 10
-
-      - name: Check out repository
-        uses: actions/checkout@v4
-        with:
-          ref: main
-          fetch-depth: 0
-
-      - name: Fetch latest change
-        run: git pull origin main
-
       - name: Build with Jekyll
         uses: noraworld/jekyll-build-pages@main
         with:
