@@ -18,8 +18,6 @@ runs:
   steps:
     - name: Check out repository
       uses: actions/checkout@v4
-      with:
-        ref: main
 
     - if: ${{ !(inputs.use_ruby_version == 'true' && inputs.use_gemfile == 'true') }}
       name: Check if jekyll-build-pages directory is excluded in _config.yml
