@@ -11,6 +11,10 @@ on:
         required: false
         default: false
         type: string
+      ref:
+        required: false
+        default: ${{ github.event.repository.default_branch }}
+        type: string
 
 permissions:
   contents: read
@@ -30,6 +34,7 @@ jobs:
         with:
           use_ruby_version: ${{ inputs.use_ruby_version }}
           use_gemfile: ${{ inputs.use_gemfile }}
+          ref: ${{ inputs.ref }}
 
   deploy:
     needs: build
