@@ -61,6 +61,7 @@ jobs:
         with:
           use_ruby_version: false
           use_gemfile: false
+          ref: main
 
   deploy:
     needs: build
@@ -84,10 +85,11 @@ Consider locking the version if you don't want to change the behavior implicitly
 ### Options
 If you don't set these options, the configurations on this project will be used.
 
-| Key                | Type    | Default | Description                                                                    |
-| ------------------ | :-----: | :-----: | ------------------------------------------------------------------------------ |
-| `use_ruby_version` | Boolean | `false` | Set your preferred Ruby version (`.ruby-version` is needed on your repository) |
-| `use_gemfile`      | Boolean | `false` | Use your preferred Gems (`Gemfile` is needed on your repository)               |
+| Key                | Type    | Default        | Description                                                                    |
+| ------------------ | :-----: | :------------: | ------------------------------------------------------------------------------ |
+| `use_ruby_version` | Boolean | `false`        | Set your preferred Ruby version (`.ruby-version` is needed on your repository) |
+| `use_gemfile`      | Boolean | `false`        | Use your preferred Gems (`Gemfile` is needed on your repository)               |
+| `ref`              | String  | default branch | Specify the target branch, tag or SHA to checkout (See [the README in `actions/checkout`](https://github.com/actions/checkout/tree/85e6279cec87321a52edac9c87bce653a07cf6c2?tab=readme-ov-file#usage) for details) |
 
 ### One more thing...
 Are you a lazy person? Same here! This repository offers a much easier way to set up a workflow. All you need to do is copy and paste the YAML code below.
@@ -106,7 +108,7 @@ jobs:
     uses: noraworld/jekyll-build-pages/.github/workflows/jekyll-gh-pages.yml@main
 ```
 
-`use_ruby_version` and `use_gemfile` are also available here too.
+The options are also available here too.
 
 Note that `jekyll-gh-pages.yml` uses the latest version of `action.yml` internally, which means the behavior might change as it's updated.
 
