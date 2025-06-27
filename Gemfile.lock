@@ -80,6 +80,8 @@ GEM
       safe_yaml (~> 1.0)
       terminal-table (>= 1.8, < 4.0)
       webrick (~> 1.7)
+    jekyll-archives (2.3.0)
+      jekyll (>= 3.6, < 5.0)
     jekyll-commonmark (1.4.0)
       commonmarker (~> 0.22)
     jekyll-feed (0.17.0)
@@ -211,6 +213,7 @@ PLATFORMS
 
 DEPENDENCIES
   jekyll
+  jekyll-archives
   jekyll-commonmark
   jekyll-feed
   jekyll-paginate
